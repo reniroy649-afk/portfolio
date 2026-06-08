@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+
+<title>Reni Roy | Creative Professional</title>
+    <link rel="icon" type="image/png" href="Reni.png">
+        <link rel="stylesheet" href="../style2.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  </head>
+
+  <body>
+    <div id="navigatiob_bar"></div>
+
+    <!-- Hero Section -->
+    <section class="graphic-hero">
+      <video autoplay muted loop playsinline class="hero-video">
+      <source src="/assets/Videos/innerbackground.mp4" type="video/mp4">
+    </video>
+      <div class="hero-content">
+        <h1>3D Models</h1>
+        <p>
+          Bringing ideas to life through clean and high-quality 3D modeling.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects List -->
+    <section class="projects-list">
+      <div class="projects-container">
+        <!-- Project 1 -->
+        
+        
+        <div class="project-details" style="display: flex;flex-direction: row;">
+          <!-- <h3>Character Design</h3> -->
+
+           <img width="30%" src="/assets/3D/3d_portfolio_collage.png" alt="Poster Design" /><br>
+           <!-- <h3>Game UI Design</h3>  -->
+          <!-- <img width="30%" src="/assets/3D/ChatGPT Image May 30, 2026, 04_50_07 PM.png" alt="Poster Design" /> -->
+        </div>
+        <!-- <div class="project-details">
+          <div class="grid-gallery3">
+            <img
+              src="/assets/3D/ChatGPT Image May 30, 2026, 04_50_07 PM.png"
+              alt="Poster Design"
+            />
+       
+           
+            
+            <img
+              src="/assets/3D/ChatGPT Image May 30, 2026, 04_54_04 PM.png"
+              alt="Poster Design"
+            />
+            <img
+              src="/assets/3D/ChatGPT Image May 30, 2026, 11_24_57 PM.png"
+              alt="Poster Design"
+            />
+            <img
+              src="/assets/3D/photo-collage.png (2).png"
+              alt="Poster Design"
+            />
+            <img
+              src="/assets/Graphic Design/Posters/social media poster design.jpg"
+              alt="Poster Design"
+            />
+            <img
+              src="/assets/Graphic Design/Posters/Untitled-1 (1).jpg"
+              alt="Poster Design"
+            />
+            <img
+              src="/assets/Graphic Design/Posters/Untitled-1 (4).jpg"
+              alt="Poster Design"
+            />
+            <img
+              src="/assets/Graphic Design/Posters/Untitled-1 (5).jpg"
+              alt="Poster Design"
+            />
+            <img
+              src="/assets/Graphic Design/Posters/Untitled-2.jpg"
+              alt="Poster Design"
+            />
+            <img
+              src="/assets/Graphic Design/Posters/WhatsApp Image 2022-04-11 at 3.34.46 AM.jpeg"
+              alt="Poster Design"
+            />
+            <img
+              src="/assets/Graphic Design/Posters/WhatsApp Image 2022-04-11 at 3.36.38 AM.jpeg"
+              alt="Poster Design"
+            />
+            <img
+              src="/assets/Graphic Design/Posters/WhatsApp Image 2022-04-11 at 3.37.33 AM.jpeg"
+              alt="Poster Design"
+            />
+          </div>
+        </div> -->
+
+        <!-- <div class="project-details">
+          <h3>Image Manipulation</h3>
+          <div class="grid-gallery3">
+            <img
+              src="/assets/Graphic Design/Illustrations/double explosure color.jpg"
+              alt="Poster Design"
+            />
+            <img
+              src="/assets/Graphic Design/Illustrations/forest PM.jpg"
+              alt="Poster Design"
+            />
+           
+          </div>
+        </div> -->
+      </div>
+    </section>
+    <div id="image-viewer">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="full-image" />
+    </div>
+    <div id="footer-placeholder"></div>
+  </body>
+  <script>
+    let sectionObserver;
+
+    // Section reveal animations with dynamic content support
+    function revealSections() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        }
+      );
+
+      // Observe existing sections
+      const existingSections = document.querySelectorAll(
+        ".threed-hero, .threed-gallery"
+      );
+      existingSections.forEach((section) => {
+        observer.observe(section);
+      });
+
+      // Return observer for dynamic content
+      return observer;
+    }
+
+    // Function to observe newly loaded sections
+    function observeNewSections(observer) {
+      const newSections = document.querySelectorAll(".footer, .thanks");
+      newSections.forEach((section) => {
+        if (!section.classList.contains("visible")) {
+          observer.observe(section);
+        }
+      });
+    }
+
+    $(function () {
+      $("#navigatiob_bar").load("./navbar.html");
+      sectionObserver = revealSections();
+
+      $("#footer-placeholder").load("footer.html", function () {
+        // Reveal animations for dynamically loaded content
+        setTimeout(() => {
+          observeNewSections(sectionObserver);
+        }, 100);
+      });
+    });
+    $(".project-details img").click(function () {
+      $("#full-image").attr("src", $(this).attr("src"));
+      $("#image-viewer").show();
+    });
+
+    $("#image-viewer .close").click(function () {
+      $("#image-viewer").hide();
+    });
+  </script>
+</html>

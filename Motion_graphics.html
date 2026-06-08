@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+<title>Reni Roy | Creative Professional</title>
+    <link rel="icon" type="image/png" href="Reni.png">
+        <link rel="stylesheet" href="../style2.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <div id="navigatiob_bar"></div>
+
+    <!-- Hero Section -->
+    <section class="threed-hero">
+        <video autoplay muted loop playsinline class="hero-video">
+      <source src="/assets/Videos/innerbackground.mp4" type="video/mp4">
+    </video>
+        <div class="hero-content">
+            <h1>Motion Graphics</h1>
+            <p>
+                Bringing imagination to life through digital sculpting, modeling, and
+                rendering.
+            </p>
+        </div>
+    </section>
+    <!-- 3D Gallery -->
+    <section class="threed-gallery">
+        <div class="gallery-container">
+            <!-- Cutovia Collection -->
+            <div class="project-group">
+                <div class="group-layout">
+                    <div class="project-description">
+                        <h2 class="group-heading">Kyurius Tech Studios</h2>
+
+                        <p>
+                            Motion graphics video created for Kyurius Tech Studios, handled end-to-end from concept to
+                            final delivery.
+                            Work included idea development, visual style, animation, transitions, and final output,
+                            ensuring the video
+                            aligned with the brand and communicated the message clearly.
+                        </p>
+
+                    </div>
+                    <div class="iframe-container">
+                        <iframe width="100%" height="100%"
+                            src="https://www.youtube.com/embed/5KSvGKIOR2A?si=nAxlD4E3fC7uDmQ8"
+                            title="Cutovia intro video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-group">
+                <div class="">
+
+                    <div class="project-description">
+                        <h2 class="group-heading">AI-Assisted Video Production - Kyurius Tech Studios</h2>
+
+                        <p>
+                            AI-assisted tools were used to accelerate the initial content generation and optimize
+                            production
+                            timelines. The videos were then refined, composited, and enhanced using Adobe After Effects,
+                            ensuring full
+                            creative control, visual consistency, and alignment with Kyurius Tech Studios’ quality
+                            standards.
+                        </p>
+
+                    </div>
+                    <div class="group-layout" style="background-color: rgba(255, 255, 255, 0.03)">
+                        <div class="iframe-container">
+                            <iframe width="100%" height="100%"
+                                src="https://www.youtube.com/embed/Wht3aSd_KTY?si=NVKc7gJAY8gSw3bK"
+                                title="Cutovia intro video" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="iframe-container">
+                            <iframe width="100%" height="100%"
+                                src="https://www.youtube.com/embed/ipbDAyCLfZg?si=8H3Y2iWKVaXrl2uk"
+                                title="Cutovia intro video" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                        </div>
+
+                    </div>
+                    <div class="group-layout" style="background-color: rgba(255, 255, 255, 0.03)">
+
+                        <div class="iframe-container">
+                            <iframe width="100%" height="100%"
+                                src="https://www.youtube.com/embed/TVKVaKhXl6k?si=tjcD-qiUhToTwn8e"
+                                title="Cutovia intro video" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <!-- <div class="iframe-container">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VLNiSv6OV_k?si=xNrVrOPSwrs1C6_B"
+                title="Cutovia intro video" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div> -->
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+           
+
+    </section>
+    <div id="footer-placeholder"></div>
+</body>
+<script>
+    // Global observer variable for this page
+    let sectionObserver;
+
+    // Section reveal animations with dynamic content support
+    function revealSections() {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px",
+            }
+        );
+
+        // Observe existing sections
+        const existingSections = document.querySelectorAll(
+            ".threed-hero, .threed-gallery"
+        );
+        existingSections.forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Return observer for dynamic content
+        return observer;
+    }
+
+    // Function to observe newly loaded sections
+    function observeNewSections(observer) {
+        const newSections = document.querySelectorAll(".footer, .thanks");
+        newSections.forEach((section) => {
+            if (!section.classList.contains("visible")) {
+                observer.observe(section);
+            }
+        });
+    }
+
+    $(function () {
+        $("#navigatiob_bar").load("./navbar.html");
+        sectionObserver = revealSections();
+
+        $("#footer-placeholder").load("footer.html", function () {
+            // Reveal animations for dynamically loaded content
+            setTimeout(() => {
+                observeNewSections(sectionObserver);
+            }, 100);
+        });
+    });
+</script>
+
+</html>
