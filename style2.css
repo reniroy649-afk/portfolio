@@ -1857,9 +1857,9 @@ button:focus {
 .project-item:nth-child(even) {
   direction: rtl;
 }
-.project-details img:hover{
+/* .project-details img:hover{
   opacity: 0.7;
-}
+} */
 
 .project-item:nth-child(even) .project-details {
   direction: ltr;
