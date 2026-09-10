@@ -398,13 +398,8 @@ function openProjectModal(projectId) {
                     <div class="spec-value">Kyurius Tech Studios</div>
                 </div>
                 <div class="spec-group" style="margin-top: 20px;">
-                    <div class="spec-label">Production Deliverables</div>
-                    <div class="spec-value">${hasVideos ? '4K 60fps Motion Video Reels, Social Formats, After Effects Source Packages' : 'High-Fidelity Assets, Production Mockups & Handover Specs'}</div>
-                </div>
-                <div style="margin-top: 24px;">
-                    <a href="project.html?id=${project.id}" class="btn btn-outline" style="width: 100%; justify-content: center; font-size: 0.85rem; padding: 10px 14px;">
-                        <i class="ph ph-arrow-square-out"></i> Open Dedicated Case Study Page
-                    </a>
+                    <div class="spec-label"></div>
+                    <div class="spec-value"></div>
                 </div>
             </div>
         </div>
